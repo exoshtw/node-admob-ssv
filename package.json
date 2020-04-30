@@ -1,5 +1,5 @@
 {
-  "name": "admob-ssv",
+  "name": "@exoshtw/admob-ssv",
   "version": "0.1.0",
   "description": "Tool for validate AdMob rewarded ads signatures SSV",
   "main": "lib/index.js",
