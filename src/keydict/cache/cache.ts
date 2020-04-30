@@ -4,7 +4,7 @@ import RawKeyRegister from '../rawkeys';
 
 export default interface KeyDictCache {
     new(keys?: Array<RawKeyRegister>);
-    get(id: number): KeyObject;
-    has(id: number): boolean;
-    save(key: RawKeyRegister): void;
+    get(id: number): Promise<KeyObject>;
+    has(id: number): Promise<boolean>;
+    save(key: RawKeyRegister): Promise<void>;
 }

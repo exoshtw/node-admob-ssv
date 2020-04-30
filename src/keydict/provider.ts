@@ -26,13 +26,13 @@ export default class KeyProvider implements KeyProviderInterface {
     }
 
     async get(keyId: number): Promise<KeyObject> {
-        if (!this.cache.has(keyId)) {
+        if (!await this.cache.has(keyId)) {
             const keys = await this.fetcher.fetch();
             for (const rawKey of keys) {
-                this.cache.save(rawKey);
+                await this.cache.save(rawKey);
             }
         }
 
-        return this.cache.get(keyId);
+        return await this.cache.get(keyId);
     }
 }

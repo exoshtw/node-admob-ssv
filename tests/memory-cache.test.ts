@@ -9,26 +9,26 @@ const KEY = {
 }
 
 describe('preloadKeys', function() {
-    test(`Must to preload keys`, () => {
+    test(`Must to preload keys`, async () => {
         const cache = new MemoryCache([KEY]);
-        expect(cache.has(3335741209)).toBeTruthy();
+        expect(await cache.has(3335741209)).toBeTruthy();
     });
 });
 
 describe('save/save', function() {
     
-    test('Must to save and get key', () => {
+    test('Must to save and get key', async () => {
         const cache = new MemoryCache();
-        expect(cache.has(3335741209)).toBeFalsy();
-        cache.save(KEY);
-        expect(cache.has(3335741209)).toBeTruthy();
-        const key = cache.get(3335741209);
+        expect(await cache.has(3335741209)).toBeFalsy();
+        await cache.save(KEY);
+        expect(await cache.has(3335741209)).toBeTruthy();
+        const key = await cache.get(3335741209);
         expect(key).toBeInstanceOf(KeyObject);
     });
 
-    test('Must to return null if key does not exists', () => {
+    test('Must to return null if key does not exists', async () => {
         const cache = new MemoryCache();
-        const key = cache.get(3335741209);
+        const key = await cache.get(3335741209);
         expect(key).toBeNull();
     });
 
