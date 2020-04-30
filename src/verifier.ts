@@ -2,6 +2,7 @@
 import querystring from 'querystring';
 import {createVerify} from 'crypto';
 import debugLib from 'debug';
+import {KeyDictCache} from './keydict/cache/cache';
 import KeyProvider, {KeyProviderInterface} from './keydict/provider';
 
 const debug = debugLib('admob-ssv:verifier');
@@ -24,10 +25,12 @@ export interface ParsedMessage {
  * Verifier options
  *
  * @typedef {object} VerifierOptions
- * @property {KeyProviderInterface} Key provider, by default create new
+ * @property {KeyProviderInterface} keyProvider Key provider, by default create new
+ * @property {KeyDictCache} keyCache If keyProvider is not defined, use custom KeyDictCache
  */
 export interface VerifierOptions {
     keyProvider?: KeyProviderInterface;    
+    keyCache?: KeyDictCache;
 }
 
 /**
@@ -81,7 +84,9 @@ export default class Verifier {
      * @param {VerifierOptions} [options] Verifier options
      */
     constructor(options? = {}): void {
-        this.keyProvider = options.keyProvider || new KeyProvider();
+        this.keyProvider = options.keyProvider || new KeyProvider({
+            cache: options.keyCache || null,
+        });
     }
 
     /**
