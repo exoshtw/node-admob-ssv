@@ -1,0 +1,69 @@
+{
+  "name": "admob-ssv",
+  "version": "0.1.0",
+  "description": "Tool for validate AdMob rewarded ads signatures SSV",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "npx jest",
+    "lint": "npx eslint ./src",
+    "build": "rm -rf lib/**; npx babel src --extensions '.ts' --out-dir lib --copy-files",
+    "prepublish": "npm run lint",
+    "prepare": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/exoshtw/node-admob-ssv.git"
+  },
+  "keywords": [
+    "AdMob",
+    "SSV",
+    "ECDSA",
+    "SHA256WithECDSA",
+    "Rewarded",
+    "ad"
+  ],
+  "author": "exos <exos@kaktheplanet.xyz>",
+  "license": "GPL-2.0",
+  "husky": {
+    "hooks": {
+      "pre-commit": "./hooks/pre-commit.sh"
+    }
+  },
+  "jest": {
+    "verbose": true,
+    "collectCoverage": true,
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/tests/"
+    ]
+  },
+  "bugs": {
+    "url": "https://github.com/exoshtw/node-admob-ssv/issues"
+  },
+  "homepage": "https://github.com/exoshtw/node-admob-ssv#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/node": "^7.8.7",
+    "@babel/plugin-transform-typescript": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-typescript": "^7.9.0",
+    "@typescript-eslint/eslint-plugin": "^2.30.0",
+    "@typescript-eslint/parser": "^2.30.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-recommended": "^4.0.0",
+    "eslint-plugin-jest": "^23.8.2",
+    "eslint-plugin-jsdoc": "^24.0.0",
+    "husky": "^4.2.5",
+    "jest": "^25.5.2",
+    "jest-cli": "^25.5.2",
+    "jest-spec-reporter": "^1.0.12",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "debug": "^4.1.1"
+  }
+}
