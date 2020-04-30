@@ -1,11 +1,6 @@
 
 import {KeyObject} from 'crypto';
-
-export interface RawKeyRegister {
-    keyId: Number;
-    pem: string;
-    base64?: string;
-}
+import RawKeyRegister from '../rawkeys';
 
 export default interface KeyDictCache {
     constructor(keys?: Array<RawKeyRegister>);

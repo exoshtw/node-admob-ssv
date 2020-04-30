@@ -1,7 +1,8 @@
 
 import {KeyObject, createPublicKey} from 'crypto';
 import debugLib from 'debug';
-import KeyDictCache, {RawKeyRegister} from './cache';
+import KeyDictCache from './cache';
+import RawKeyRegister from '../rawkeys';
 
 const debug = debugLib('admob-ssv:keydict:MemoryCache');
 
