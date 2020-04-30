@@ -6,13 +6,13 @@ import KeyFetcher from './fetcher/fetcher';
 import Fetcher from './fetcher';
 
 export interface KeyProviderOptions {
-    cache?: KeyDictCache,
-    fetcher?: KeyFetcher,
+    cache?: KeyDictCache;
+    fetcher?: KeyFetcher;
 }
 
 export interface KeyProviderInterface {
-    constructor(options?: KeyProviderOptions): void;
-    get(keyId: Number): Promise<KeyObject>;
+    new(options?: KeyProviderOptions): void;
+    get(keyId: number): Promise<KeyObject>;
 }
 
 export default class KeyProvider implements KeyProviderInterface {
@@ -25,7 +25,7 @@ export default class KeyProvider implements KeyProviderInterface {
         this.fetcher = options.fetcher || new Fetcher();
     }
 
-    async get(keyId: Number): Promise<KeyObject> {
+    async get(keyId: number): Promise<KeyObject> {
         if (!this.cache.has(keyId)) {
             const keys = await this.fetcher.fetch();
             for (const rawKey of keys) {

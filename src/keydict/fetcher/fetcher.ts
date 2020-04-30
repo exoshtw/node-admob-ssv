@@ -2,7 +2,7 @@
 import RawKeyRegister from '../rawkeys';
 
 export interface FetcherOptions {
-    url?: string,
+    url?: string;
 }
 
 export default interface KeyFetcher {

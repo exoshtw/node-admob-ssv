@@ -7,7 +7,7 @@ import RawKeyRegister from '../rawkeys';
 const debug = debugLib('admob-ssv:keydict:MemoryCache');
 
 interface InternalKeyRegister extends RawKeyRegister {
-    added: Number,
+    added: number;
 }
 
 /**
@@ -15,7 +15,7 @@ interface InternalKeyRegister extends RawKeyRegister {
  */
 export default class MemoryCache implements KeyDictCache {
 
-    private keys: Map<Number, InternalKeyRegister>;
+    private keys: Map<number, InternalKeyRegister>;
 
     constructor(keys?: Array<RawKeyRegister>) {
         this.keys = new Map();
@@ -30,11 +30,11 @@ export default class MemoryCache implements KeyDictCache {
         }
     }
 
-    has(id: Number): boolean {
+    has(id: number): boolean {
         return this.keys.has(id);
     }
 
-    get(id: Number): KeyObject {
+    get(id: number): KeyObject {
         debug(`Get key ${id}`);
         const key = this.keys.get(id);
         return key ? createPublicKey(key.pem) : null;

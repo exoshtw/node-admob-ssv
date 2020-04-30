@@ -7,7 +7,7 @@ const KEY_URL = 'https://www.gstatic.com/admob/reward/verifier-keys.json';
 
 export default class SimpleFetcher implements KeyFetcher {
 
-    async fetch(options: FetcherOptions = {}) {
+    async fetch(options: FetcherOptions = {}): Promise<RawKeyRegister> {
         options = {
             url: KEY_URL,
             ...options,
@@ -15,7 +15,7 @@ export default class SimpleFetcher implements KeyFetcher {
 
         return new Promise((resolve, reject) => {
             https.get(options.url, (response) => {
-                let data: string = '';
+                let data = '';
                 response.on('data', (chunk) => {
                     data += chunk;
                 });

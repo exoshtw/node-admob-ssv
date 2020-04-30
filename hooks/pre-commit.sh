@@ -17,9 +17,9 @@ show_nook() {
 ## Prevent master commits!
 
 CURRENT_BRANCH=$(git symbolic-ref HEAD)
-STAGED_CODE_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep ".jsx\{0,1\}$" | grep "src/" )
+STAGED_CODE_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep ".[jt]sx\{0,1\}$" | grep "src/" )
 STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM)
-TEST_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep ".test.jsx\{0,1\}$" )
+TEST_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep ".test.[jt]sx\{0,1\}$" )
 
 MASTER_BRANCH_NAME=$(git config gitflow.branch.master)
 MASTER_BRANCH_NAME=${MASTER_BRANCH_NAME:-master};
