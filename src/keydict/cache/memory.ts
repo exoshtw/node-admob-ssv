@@ -34,7 +34,7 @@ export default class MemoryCache implements KeyDictCache {
         return this.keys.has(id);
     }
 
-    async get(id: number): Promise<KeyObject> {
+    async get(id: number): Promise<KeyObject | null> {
         debug(`Get key ${id}`);
         const key = this.keys.get(id);
         return key ? createPublicKey(key.pem) : null;
