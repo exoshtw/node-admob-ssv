@@ -14,12 +14,8 @@ module.exports = {
         "plugin:jsdoc/recommended"
     ],
     parserOptions: {
-        ecmaVersion: 8,
+        ecmaVersion: 2020,
         sourceType: "module",
-        ecmaFeatures: {
-            spread: true,
-            experimentalObjectRestSpread: true,
-        }
     },
     rules: {
         indent: ['error', 4, {
@@ -28,6 +24,7 @@ module.exports = {
                 parameters: "first",
             },
         }],
+        "jsdoc/tag-lines": 0,
         "padded-blocks": 0,
         "no-constant-condition": 0,
     }
