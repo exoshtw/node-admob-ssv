@@ -52,7 +52,6 @@ export function parseQueryString(raw: string): Record<string, any> {
  */
 export function parseMessage(data: any): ParsedMessage {
     debug(`Parsing message`);
-    // eslint-disable-next-line @typescript-eslint/camelcase
     const {key_id, signature} = data;
     const fdata = {...data};
     delete fdata.key_id;

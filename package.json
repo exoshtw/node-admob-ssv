@@ -44,19 +44,20 @@
   },
   "homepage": "https://github.com/exoshtw/node-admob-ssv#readme",
   "devDependencies": {
+    "@types/debug": "^4.1.12",
     "@types/jest": "^25.2.1",
     "@types/node": "^20.19.27",
-    "@typescript-eslint/eslint-plugin": "^2.30.0",
-    "@typescript-eslint/parser": "^2.30.0",
-    "eslint": "^6.8.0",
-    "eslint-plugin-jest": "^23.8.2",
-    "eslint-plugin-jsdoc": "^24.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-jest": "^27.9.0",
+    "eslint-plugin-jsdoc": "^48.0.0",
     "husky": "^4.2.5",
     "jest": "^25.5.2",
     "jest-cli": "^25.5.2",
     "jest-spec-reporter": "^1.0.12",
     "ts-jest": "^25.5.1",
-    "typescript": "^3.8.3"
+    "typescript": "^5.6.3"
   },
   "dependencies": {
     "debug": "^4.1.1"
