@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npx jest",
     "lint": "npx eslint './src/**/*.{t,j}s'",
-    "build": "rm -rf lib/**; npx babel src --extensions '.ts' --out-dir lib --copy-files",
+    "build": "rm -rf lib/**; npx tsc -p tsconfig.json",
     "prepublish": "npm run lint",
     "prepare": "npm run build"
   },
@@ -30,6 +30,7 @@
     }
   },
   "jest": {
+    "preset": "ts-jest",
     "verbose": true,
     "collectCoverage": true,
     "testEnvironment": "node",
@@ -43,16 +44,10 @@
   },
   "homepage": "https://github.com/exoshtw/node-admob-ssv#readme",
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.9.6",
-    "@babel/node": "^7.8.7",
-    "@babel/plugin-transform-typescript": "^7.9.6",
-    "@babel/preset-env": "^7.9.6",
-    "@babel/preset-typescript": "^7.9.0",
     "@types/jest": "^25.2.1",
+    "@types/node": "^20.19.27",
     "@typescript-eslint/eslint-plugin": "^2.30.0",
     "@typescript-eslint/parser": "^2.30.0",
-    "babel-eslint": "^10.1.0",
     "eslint": "^6.8.0",
     "eslint-plugin-jest": "^23.8.2",
     "eslint-plugin-jsdoc": "^24.0.0",
@@ -60,6 +55,7 @@
     "jest": "^25.5.2",
     "jest-cli": "^25.5.2",
     "jest-spec-reporter": "^1.0.12",
+    "ts-jest": "^25.5.1",
     "typescript": "^3.8.3"
   },
   "dependencies": {
