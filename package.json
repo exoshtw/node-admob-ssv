@@ -4,7 +4,7 @@
   "description": "Tool for validate AdMob rewarded ads signatures SSV",
   "main": "lib/index.js",
   "scripts": {
-    "test": "npx jest",
+    "test": "jest",
     "lint": "npx eslint './src/**/*.{t,j}s'",
     "build": "rm -rf lib/**; npx tsc -p tsconfig.json",
     "prepublish": "npm run lint",
@@ -45,7 +45,7 @@
   "homepage": "https://github.com/exoshtw/node-admob-ssv#readme",
   "devDependencies": {
     "@types/debug": "^4.1.12",
-    "@types/jest": "^25.2.1",
+    "@types/jest": "^29.0.0",
     "@types/node": "^20.19.27",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
@@ -53,10 +53,9 @@
     "eslint-plugin-jest": "^27.9.0",
     "eslint-plugin-jsdoc": "^48.0.0",
     "husky": "^4.2.5",
-    "jest": "^25.5.2",
-    "jest-cli": "^25.5.2",
+    "jest": "^29.0.0",
     "jest-spec-reporter": "^1.0.12",
-    "ts-jest": "^25.5.1",
+    "ts-jest": "^29.0.0",
     "typescript": "^5.6.3"
   },
   "dependencies": {
