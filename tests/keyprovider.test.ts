@@ -1,6 +1,6 @@
 
 import {KeyObject} from 'crypto';
-import {KeyProvider} from '../src/keydict/provider';
+import KeyProvider from '../src/keydict/provider';
 
 describe('#get', function() {
     
