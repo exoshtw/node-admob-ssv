@@ -2,7 +2,7 @@
 import querystring from 'querystring';
 import {createVerify} from 'crypto';
 import debugLib from 'debug';
-import {KeyDictCache} from './keydict/cache/cache';
+import KeyDictCache from './keydict/cache/cache';
 import KeyProvider, {KeyProviderInterface} from './keydict/provider';
 
 const debug = debugLib('admob-ssv:verifier');
@@ -39,7 +39,7 @@ export interface VerifierOptions {
  * @param {string} raw String of querystring
  * @returns {object} key, value dictionary from querystring
  */
-export function parseQueryString(raw: string): object {
+export function parseQueryString(raw: string): Record<string, any> {
     debug(`Parsing query string`);
     return querystring.parse(raw);
 }
@@ -50,7 +50,7 @@ export function parseQueryString(raw: string): object {
  * @param {object} data Raw key: value dicto
  * @returns {ParsedMessage} Usable message
  */
-export function parseMessage(data: object): ParsedMessage {
+export function parseMessage(data: any): ParsedMessage {
     debug(`Parsing message`);
     // eslint-disable-next-line @typescript-eslint/camelcase
     const {key_id, signature} = data;
@@ -83,7 +83,7 @@ export default class Verifier {
      *
      * @param {VerifierOptions} [options] Verifier options
      */
-    constructor(options? = {}): void {
+    constructor(options: VerifierOptions = {}) {
         this.keyProvider = options.keyProvider || new KeyProvider({
             cache: options.keyCache || null,
         });
@@ -95,7 +95,7 @@ export default class Verifier {
      * @param {ParsedMessage|object|string} data Raw Data
      * @returns {Promise<boolean>} True if is verified
      */
-    async verify(data: ParsedMessage | object | string): Promise<boolean> {
+    async verify(data: ParsedMessage | any | string): Promise<boolean> {
         debug(`Verify`);
 
         if (typeof data === 'string') {

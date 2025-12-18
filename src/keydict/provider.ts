@@ -11,8 +11,7 @@ export interface KeyProviderOptions {
 }
 
 export interface KeyProviderInterface {
-    new(options?: KeyProviderOptions): void;
-    get(keyId: number): Promise<KeyObject>;
+    get(keyId: number): Promise<KeyObject | null>;
 }
 
 export default class KeyProvider implements KeyProviderInterface {
@@ -25,7 +24,7 @@ export default class KeyProvider implements KeyProviderInterface {
         this.fetcher = options.fetcher || new Fetcher();
     }
 
-    async get(keyId: number): Promise<KeyObject> {
+    async get(keyId: number): Promise<KeyObject | null> {
         if (!await this.cache.has(keyId)) {
             const keys = await this.fetcher.fetch();
             for (const rawKey of keys) {
