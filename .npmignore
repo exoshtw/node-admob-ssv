@@ -1,8 +1,4 @@
-.babelrc
-.eslintrc.js
-.gitignore
-hooks
-src
-coverage
-tests
-_local
+coverage/*
+hooks/*
+src/*
+tests/*
